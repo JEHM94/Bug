@@ -1,0 +1,50 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.sobre-festival {
+    padding: 5rem 0;
+
+    @include m.tablet {
+        @include m.grid(2, 5rem);
+    }
+}
+
+.contenido-festival{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2 {
+        margin: 0;
+    }
+
+    .fecha {
+        color: v.$blanco;
+        font-weight: 700;
+    }
+}
+
+.imagen-vocalista {
+    margin-bottom: 3rem;
+    @include m.tablet{
+        margin-bottom: 0;
+    }
+}
+
+[data-anime]{
+    opacity: 0;
+    transition: .3s; // con este comando puedo crear rapidamente una transicion
+}
+
+[data-anime="left"]{
+    transform: translate3d(-50px, 0px, 0px);
+}
+[data-anime="right"]{
+    transform: translate3d(50px, 0px, 0px);
+}
+
+[data-anime].animate{
+    opacity: 1;
+    transform: translate3d(0px, 0px, 0px);
+}
+

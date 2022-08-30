@@ -1,0 +1,45 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.video {
+    position: relative;
+    max-height: 71rem;
+    min-height: 50rem;
+    overflow: hidden; //con esto el restante del video se oculta
+        .overlay {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background: rgb(169,0,255);
+            background: linear-gradient(270deg, rgba(169,0,255,0.53687412464986) 0%, rgba(255,0,89,0.3) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+    video {
+        width: auto;
+        display: block; // con esto el video toma el tamaño del bloque
+        @include m.desktop{
+            width: 100%;
+        }
+    }
+} // Colocando en un objeto con posicion relativa y otro objeto de la misma clase con posicion absoluta podemos lograr que el de posicion absolita se monte encima del de posicion relativa
+
+.contenido-video {
+    z-index: 1; // cambia el orden de muestra "ejemplo una hoja encima de otra"
+    h2 {
+        color: v.$blanco;
+        font-size: 7rem;
+        margin: 0;
+    }
+    p {
+        background-color: v.$rosa;
+        display: inline-block;
+        padding: 1rem 2rem;
+        color: v.$blanco;
+        font-weight: 700;
+        font-size: 2.4rem;
+        margin: 0;
+    }
+}

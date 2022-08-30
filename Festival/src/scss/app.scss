@@ -1,0 +1,5 @@
+/*@import 'base/variables';
+@import 'contenido/contenido'; Forma anterior de llamar a los archivos scss*/
+
+@use 'base'; /* "use" es el que compila, y forward es el que indica donde esta el archivo y solo va dentro el archivo "index" */
+@use 'layout';
